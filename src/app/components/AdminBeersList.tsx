@@ -44,16 +44,16 @@ const AdminBeersList: React.FC = () => {
                         <td>{beer.name}</td>
                         <td>{beer.price}</td>
                         <td>
-                            {beer.rating.average} ({beer.rating.reviews} reviews)
+                            {beer.rating?.average || 0} ({beer.rating?.reviews || 0} reviews)
                         </td>
-                        <Button   variant="warning"
-                                  size="sm"
-                                  href={`/admin/edit/${beer.id}`}
-                                  className="me-2"
-                        >
-                            Sửa
-                        </Button>
                         <td>
+                            <Button variant="warning"
+                                    size="sm"
+                                    href={`/admin/edit/${beer.id}`}
+                                    className="me-2"
+                            >
+                                Sửa
+                            </Button>
                             <Button variant="danger"
                                     onClick={() => handleDelete(beer.id)}>
                                 Xoá
